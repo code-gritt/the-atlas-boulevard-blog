@@ -2,16 +2,26 @@ import React from "react";
 import Wrapper from "./utils/Wrapper";
 import Link from "next/link";
 import { buttonVariants } from "./ui/Button";
-import { ArrowRight } from "lucide-react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import UserAccount from "./user/UserAccount";
+import { db } from "@/lib/db";
 
 interface Props {}
 
 const Navbar: React.FC<Props> = async () => {
-  const { getUser } = getKindeServerSession();
+  const { getUser, isAuthenticated } = getKindeServerSession();
 
   const user = await getUser();
+  const authenticated = await isAuthenticated();
+
+  let credits = 0;
+  if (authenticated && user?.id) {
+    const dbUser = await db.user.findUnique({
+      where: { id: user.id },
+      select: { credits: true },
+    });
+    credits = dbUser?.credits || 0;
+  }
 
   return (
     <header className="sticky z-[80] h-14 inset-x-0 top-0 w-full border-b border-border bg-white/50 backdrop-blur-lg transition-all">
@@ -27,7 +37,7 @@ const Navbar: React.FC<Props> = async () => {
                 {/* <Link href="/api/auth/logout" className={buttonVariants({ size: "sm", variant: "ghost" })}>
                                     Sign out
                                 </Link> */}
-
+                <span className="text-sm font-medium">Credits: {credits}</span>
                 <Link
                   href="/new-story"
                   className={buttonVariants({

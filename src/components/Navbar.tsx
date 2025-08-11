@@ -17,7 +17,7 @@ const Navbar: React.FC<Props> = async () => {
     <header className="sticky z-[80] h-14 inset-x-0 top-0 w-full border-b border-border bg-white/50 backdrop-blur-lg transition-all">
       <Wrapper>
         <div className="flex h-14 items-center justify-between border-b border-border">
-          <Link href="/" className="flex z-40 font-semibold">
+          <Link href="/" className="flex z-40 font-semibold text-xl">
             The Atlas <span className="text-primary ml-1"> Boulevard</span>
           </Link>
 
@@ -29,7 +29,7 @@ const Navbar: React.FC<Props> = async () => {
                                 </Link> */}
 
                 <Link
-                  href="/dashboard"
+                  href="/new-story"
                   className={buttonVariants({
                     size: "sm",
                     className: "hidden sm:flex items-center gap-1",
@@ -55,16 +55,6 @@ const Navbar: React.FC<Props> = async () => {
                   Login
                 </Link>
                 <div className="h-6 w-px bg-border"></div>
-                <Link
-                  href="/configure/upload"
-                  className={buttonVariants({
-                    size: "sm",
-                    className: "hidden sm:flex items-center gap-1",
-                  })}
-                >
-                  Create case
-                  <ArrowRight className="w-4 h-4 ml-1.5" />
-                </Link>
               </>
             )}
           </div>

@@ -12,43 +12,38 @@ export async function POST(req: NextRequest) {
 
   const formData = await req.formData();
   const title = formData.get("title") as string;
-  const content = JSON.parse(formData.get("content") as string);
+  const subtitle = formData.get("subtitle") as string | null;
+  const category = formData.get("category") as string | null;
+  const thumbnail = formData.get("thumbnail") as string | null;
+  const contentText = formData.get("contentText") as string; // Plain text content
 
   const dbUser = await db.user.findUnique({
     where: { id: user.id },
     select: { credits: true },
   });
 
-  if (!dbUser || dbUser.credits < 5) {
+  if (typeof dbUser?.credits === "number" && dbUser.credits < 5) {
     return NextResponse.redirect(new URL("/pricing", req.url));
   }
-  await db.$transaction(
-    async (tx: {
-      blog: {
-        create: (arg0: {
-          data: { title: string; content: any; authorId: string };
-        }) => any;
-      };
-      user: {
-        update: (arg0: {
-          where: { id: string };
-          data: { credits: { decrement: number } };
-        }) => any;
-      };
-    }) => {
-      await tx.blog.create({
-        data: {
-          title,
-          content,
-          authorId: user.id,
-        },
-      });
-      await tx.user.update({
-        where: { id: user.id },
-        data: { credits: { decrement: 5 } },
-      });
-    }
-  );
+  await db.$transaction(async (tx) => {
+    await tx.blog.create({
+      data: {
+        title,
+        content: {}, // Empty JSON object since we're not using Tiptap
+        authorId: user.id,
+        subtitle,
+        category,
+        contentText, // Store plain text content here
+        thumbnail,
+        views: 0,
+        commentsCount: 0,
+      },
+    });
+    await tx.user.update({
+      where: { id: user.id },
+      data: { credits: { decrement: 5 } },
+    });
+  });
 
   return NextResponse.redirect(new URL("/", req.url));
 }

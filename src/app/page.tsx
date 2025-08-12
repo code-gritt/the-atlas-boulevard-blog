@@ -16,8 +16,6 @@ const HomePage = async () => {
   return (
     <ClientWrapper>
       <div className="bg-slate-50">
-        {/* Hero Section (commented out as before) */}
-        {/* ... (keep commented or uncomment and adjust as needed) ... */}
         <section className="py-12">
           <Wrapper>
             <h2 className="text-2xl font-bold mb-6">Latest Stories</h2>
@@ -39,13 +37,12 @@ const HomePage = async () => {
                       {blog.title}
                     </h3>
                     <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                      {blog.subtitle ||
-                        blog.contentText?.slice(0, 100) + "..." ||
-                        "No subtitle available"}
+                      {blog.contentText?.slice(0, 100) + "..." ||
+                        "No content available"}
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-3">
                       <span>
-                        {blog.createdAt.toLocaleDateString("en-US", {
+                        {new Date(blog.createdAt).toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
                         })}

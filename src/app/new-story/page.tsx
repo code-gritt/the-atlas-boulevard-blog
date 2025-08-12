@@ -3,7 +3,6 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Input } from "@/components/ui/Input";
-import { EditorComponent } from "@/components/Editor";
 import { Button } from "@/components/ui/Button";
 import { db } from "@/lib/db";
 
@@ -32,7 +31,11 @@ const NewStoryPage = async () => {
   return (
     <div className="flex min-h-screen w-full bg-muted/40 pt-20">
       <div className="max-w-3xl mx-auto w-full p-6">
-        <form action="/api/publish-blog" method="POST">
+        <form
+          action="/api/publish-blog"
+          method="POST"
+          encType="multipart/form-data"
+        >
           <Input
             name="title"
             placeholder="Title"
@@ -46,16 +49,18 @@ const NewStoryPage = async () => {
             className="mb-4"
           />
           <Input
+            type="file"
             name="thumbnail"
-            placeholder="Thumbnail URL (e.g., https://example.com/image.jpg)"
+            accept="image/*"
             className="mb-4"
+            placeholder="Upload Thumbnail"
           />
           <Input
             name="contentText"
-            placeholder="Optional text summary (auto-generated if left blank)"
-            className="mb-4"
+            placeholder="Write your story here..."
+            className="w-full h-40 p-2 mb-4 border rounded resize-y"
+            required
           />
-          <EditorComponent />
           <Button type="submit" className="mt-4">
             Publish
           </Button>

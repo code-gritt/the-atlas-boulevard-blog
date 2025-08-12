@@ -64,7 +64,6 @@ const Navbar: React.FC<Props> = async () => {
                 >
                   Login
                 </Link>
-                <div className="h-6 w-px bg-border"></div>
               </>
             )}
           </div>

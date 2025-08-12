@@ -20,6 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="wdlByCZtt15adBudf4vuQ__pWccGvhmx4kxx4n_1pLY"
+        />
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-8291461267710066"
+        ></meta>
       </head>
       <body
         className={cn(

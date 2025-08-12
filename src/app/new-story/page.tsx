@@ -55,12 +55,14 @@ const NewStoryPage = async () => {
             className="mb-4"
             placeholder="Upload Thumbnail"
           />
-          <Input
-            name="contentText"
-            placeholder="Write your story here..."
-            className="w-full h-40 p-2 mb-4 border rounded resize-y"
-            required
-          />
+          <div className="mb-6">
+            <Input
+              name="contentText"
+              placeholder="Write your story here..."
+              className="w-full h-64 p-4 mb-4 border border-gray-300 rounded-lg resize-y focus:ring-2 focus:ring-gray-400 focus:border-transparent placeholder-gray-500"
+              required
+            />
+          </div>
           <Button type="submit" className="mt-4">
             Publish
           </Button>

@@ -1,9 +1,6 @@
 import { Wrapper } from "@/components";
 import ClientWrapper from "@/components/client-wrapper";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { db } from "@/lib/db";
-import { Star } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -55,11 +52,9 @@ const HomePage = async () => {
                   </div>
                   {blog.thumbnail && (
                     <div className="w-full md:w-40 h-28 flex-shrink-0">
-                      <Image
+                      <img
                         src={blog.thumbnail}
                         alt={blog.title}
-                        width={160}
-                        height={112}
                         className="w-full h-full object-cover rounded-md"
                       />
                     </div>

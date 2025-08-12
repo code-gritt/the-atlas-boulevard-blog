@@ -26,12 +26,16 @@ const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
   return (
     <ClientWrapper>
       <Wrapper className="py-12">
-        <article className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+        <article className="max-w-3xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg transition-colors duration-300">
+          <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+            {blog.title}
+          </h1>
           {blog.subtitle && (
-            <h2 className="text-xl text-gray-600 mb-4">{blog.subtitle}</h2>
+            <h2 className="text-xl mb-4 text-gray-600 dark:text-gray-400">
+              {blog.subtitle}
+            </h2>
           )}
-          <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+          <div className="flex items-center gap-4 text-sm mb-6 text-gray-500 dark:text-gray-400">
             <span>By {blog.author?.name || "Anonymous"}</span>
             <span>•</span>
             <span>
@@ -55,10 +59,10 @@ const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
               />
             </div>
           )}
-          <div className="prose max-w-none whitespace-pre-line">
+          <div className="prose max-w-none whitespace-pre-line text-gray-800 dark:text-gray-200 transition-colors duration-300">
             {blog.contentText || "No content available"}
           </div>
-          <div className="mt-6 text-sm text-gray-500">
+          <div className="mt-6 text-sm text-gray-600 dark:text-gray-400">
             Category: {blog.category || "Uncategorized"}
           </div>
         </article>

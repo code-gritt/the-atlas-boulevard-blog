@@ -5,6 +5,7 @@ import { buttonVariants } from "./ui/Button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import UserAccount from "./user/UserAccount";
 import { db } from "@/lib/db";
+import ThemeToggle from "./ThemeToggle";
 
 interface Props {}
 
@@ -78,6 +79,7 @@ const Navbar: React.FC<Props> = async () => {
                 </Link>
               </>
             )}
+            <ThemeToggle />
           </nav>
 
           {/* Mobile menu, visible only when checkbox is checked */}
@@ -112,6 +114,7 @@ const Navbar: React.FC<Props> = async () => {
                 </Link>
               </>
             )}
+            <ThemeToggle />
           </nav>
         </div>
       </Wrapper>

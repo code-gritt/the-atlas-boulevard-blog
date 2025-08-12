@@ -4,6 +4,7 @@ import { Footer, Navbar, Providers } from "@/components";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/Sonner";
 import { SITE_CONFIG } from "@/config";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const font = DM_Sans({
   subsets: ["latin"],
@@ -39,7 +40,11 @@ export default function RootLayout({
         <Toaster richColors theme="light" />
         <main className="flex flex-col min-h-[calc(100vh-3.5rem-1px)]">
           <div className="flex-1 flex flex-col h-full">
-            <Providers>{children}</Providers>
+            <Providers>
+              <ThemeProvider attribute="class" defaultTheme="system">
+                {children}
+              </ThemeProvider>
+            </Providers>
           </div>
           <Footer />
         </main>

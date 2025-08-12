@@ -12,10 +12,12 @@ const HomePage = async () => {
 
   return (
     <ClientWrapper>
-      <div className="bg-slate-50">
+      <div className="bg-slate-50 dark:bg-gray-900 min-h-screen">
         <section className="py-12">
           <Wrapper>
-            <h2 className="text-2xl font-bold mb-6">Latest Stories</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              Latest Stories
+            </h2>
             <div className="space-y-8 max-w-3xl w-full">
               {blogs.map((blog) => (
                 <Link
@@ -24,20 +26,20 @@ const HomePage = async () => {
                   className="flex flex-col md:flex-row justify-between gap-4 group"
                 >
                   <div className="flex-1">
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
                       In {blog.category || "Stories"} by{" "}
-                      <span className="font-medium">
+                      <span className="font-medium text-gray-800 dark:text-gray-200">
                         {blog.author?.name || "Anonymous"}
                       </span>
                     </p>
-                    <h3 className="text-lg font-bold mt-1 group-hover:text-primary transition-colors">
+                    <h3 className="text-lg font-bold mt-1 group-hover:text-primary dark:group-hover:text-primary-light transition-colors text-gray-900 dark:text-white">
                       {blog.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
                       {blog.contentText?.slice(0, 100) + "..." ||
                         "No content available"}
                     </p>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mt-3">
+                    <div className="flex items-center gap-4 text-xs text-gray-600 dark:text-gray-400 mt-3">
                       <span>
                         {new Date(blog.createdAt).toLocaleDateString("en-US", {
                           month: "short",

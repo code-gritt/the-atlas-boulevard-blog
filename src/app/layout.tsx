@@ -18,36 +18,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="google-site-verification"
           content="wdlByCZtt15adBudf4vuQ__pWccGvhmx4kxx4n_1pLY"
         />
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-8291461267710066"
-        ></meta>
+        <meta name="google-adsense-account" content="ca-pub-8291461267710066" />
       </head>
       <body
         className={cn(
-          "min-h-screen bg-slate-50 text-slate-900 antialiased",
-          font.className
+          "min-h-screen antialiased",
+          font.className,
+          "dark:bg-gray-900 dark:text-gray-100"
         )}
       >
-        <Navbar />
-        <Toaster richColors theme="light" />
-        <main className="flex flex-col min-h-[calc(100vh-3.5rem-1px)]">
-          <div className="flex-1 flex flex-col h-full">
-            <Providers>
-              <ThemeProvider attribute="class" defaultTheme="system">
-                {children}
-              </ThemeProvider>
-            </Providers>
-          </div>
-          <Footer />
-        </main>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <Providers>
+            <Navbar />
+            <Toaster richColors theme="light" />
+            <main className="flex flex-col min-h-[calc(100vh-3.5rem-1px)]">
+              <div className="flex-1 flex flex-col h-full">{children}</div>
+              <Footer />
+            </main>
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

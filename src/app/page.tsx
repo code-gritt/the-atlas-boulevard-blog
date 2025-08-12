@@ -16,7 +16,7 @@ const HomePage = async () => {
         <section className="py-12">
           <Wrapper>
             <h2 className="text-2xl font-bold mb-6">Latest Stories</h2>
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-3xl w-full">
               {blogs.map((blog) => (
                 <Link
                   key={blog.id}

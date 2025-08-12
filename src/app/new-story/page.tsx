@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { db } from "@/lib/db";
+import { Textarea } from "@/components/ui/textarea";
 
 export const metadata: Metadata = {
   title: "New Story",
@@ -55,14 +56,12 @@ const NewStoryPage = async () => {
             className="mb-4"
             placeholder="Upload Thumbnail"
           />
-          <div className="mb-6">
-            <Input
-              name="contentText"
-              placeholder="Write your story here..."
-              className="w-full h-64 p-4 mb-4 border border-gray-300 rounded-lg resize-y focus:ring-2 focus:ring-gray-400 focus:border-transparent placeholder-gray-500"
-              required
-            />
-          </div>
+          <Textarea
+            name="contentText"
+            placeholder="Write your story here..."
+            className="w-full h-40 p-2 mb-4 border rounded resize-y"
+            required
+          />
           <Button type="submit" className="mt-4">
             Publish
           </Button>

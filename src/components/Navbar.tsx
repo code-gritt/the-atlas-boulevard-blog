@@ -19,7 +19,7 @@ const aiProducts = {
     { name: "Geldify AI", href: "https://geldify-ai.vercel.app/" },
     { name: "PruneUrl", href: "https://prune-url.vercel.app/" },
     { name: "Resumesque AI", href: "https://resumesque-ai.vercel.app/" },
-    { name: "Orqly AI", href: "https://orqly.vercel.app/" },
+    { name: "Orqly AI", href: "https://orqly-ai.vercel.app/" },
   ],
 };
 

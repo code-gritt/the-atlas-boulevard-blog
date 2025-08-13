@@ -54,6 +54,7 @@ const Footer = () => {
                   ["Geldify AI", "https://geldify-ai.vercel.app/"],
                   ["PruneUrl", "https://prune-url.vercel.app/"],
                   ["Resumesque AI", "https://resumesque-ai.vercel.app/"],
+                  ["Orqly AI", "https://orqly.vercel.app/"],
                 ].map(([name, href]) => (
                   <li key={name}>
                     <Link

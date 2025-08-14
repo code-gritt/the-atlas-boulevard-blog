@@ -86,6 +86,10 @@ const Footer = () => {
                     "Ich Spreche Deutsch",
                     "https://ich-spreche-deutsch.vercel.app/",
                   ],
+                  [
+                    "Je Parle Francais",
+                    "https://je-parle-francais.vercel.app/",
+                  ],
                 ].map(([name, href]) => (
                   <li key={name}>
                     <Link

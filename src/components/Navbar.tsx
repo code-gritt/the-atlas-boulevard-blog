@@ -35,6 +35,10 @@ const blogs = {
       name: "Ich Spreche Deutsch",
       href: "https://ich-spreche-deutsch.vercel.app/",
     },
+    {
+      name: "Je Parle Francais",
+      href: "https://je-parle-francais.vercel.app/",
+    },
   ],
 };
 

@@ -21,6 +21,7 @@ const aiProducts = {
     { name: "Resumesque AI", href: "https://resumesque-ai.vercel.app/" },
     { name: "Orqly AI", href: "https://orqly-ai.vercel.app/" },
     { name: "Rocliq", href: "https://rocliq.vercel.app/" },
+    { name: "DigiRech", href: "https://digirech.vercel.app/" },
   ],
 };
 
